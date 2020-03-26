@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "editor.tabSize": 2,
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true
+}

@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install dependecies
+        run: yarn
+      - name: ESLint
+        run: yarn lint
+      - name: Prettier
+        run: yarn format
+      - name: Build
+        run: yarn build

@@ -1,0 +1,22 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^12.7.5",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "eslint": "^5.15.0",
+    "eslint-config-prettier": "^6.3.0",
+    "prettier": "^1.16.4",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "scripts": {
+    "lint": "eslint ./src --ext .js,.ts",
+    "start": "ts-node src/start.ts",
+    "build": "tsc --outDir dist",
+    "prod": "node dist/start.js"
+  }
+}
