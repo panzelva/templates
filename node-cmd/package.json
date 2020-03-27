@@ -1,22 +1,36 @@
 {
-  "name": "utils",
-  "version": "1.0.0",
+  "name": "node-cmd",
+  "version": "0.0.1",
   "main": "index.js",
+  "author": "Lukas Fuchs <panzelva@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^12.7.5",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "eslint": "^5.15.0",
-    "eslint-config-prettier": "^6.3.0",
-    "prettier": "^1.16.4",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "pkg": "^4.4.4",
+    "prettier": "^2.0.2",
+    "ts-loader": "^6.2.2",
+    "ts-node": "^8.8.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "scripts": {
-    "lint": "eslint ./src --ext .js,.ts",
-    "start": "ts-node src/start.ts",
-    "build": "tsc --outDir dist",
-    "prod": "node dist/start.js"
+    "start": "ts-node src/cmd.ts",
+    "start:prod": "node dist/cmd.js",
+    "build": "yarn build:source && yarn build:bin",
+    "build:source": "webpack --config webpack.config.js -p",
+    "build:bin": "pkg -o build/node-cmd -t node12-linux-x64,node12-macos-x64,node12-win-x64 dist/cmd.js",
+    "lint": "eslint ./src --ext .js,.ts,.tsx",
+    "lint:fix": "yarn lint --fix",
+    "format": "prettier src/**/*.{js,ts,tsx} --list-different",
+    "format:fix": "yarn format --write"
+  },
+  "engines": {
+    "node": ">=12.0.0"
   }
 }
