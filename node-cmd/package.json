@@ -5,6 +5,7 @@
   "author": "Lukas Fuchs <panzelva@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/yargs": "^15.0.4",
     "@typescript-eslint/eslint-plugin": "^2.25.0",
     "@typescript-eslint/parser": "^2.25.0",
     "clean-webpack-plugin": "^3.0.0",
@@ -17,14 +18,16 @@
     "typescript": "^3.8.3",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-node-externals": "^1.7.2",
+    "webpack-pkg-plugin-v4": "^2.0.4"
+  },
+  "dependencies": {
+    "yargs": "^15.3.1"
   },
   "scripts": {
     "start": "ts-node src/cmd.ts",
     "start:prod": "node dist/cmd.js",
-    "build": "yarn build:source && yarn build:bin",
-    "build:source": "webpack --config webpack.config.js -p",
-    "build:bin": "pkg -o build/node-cmd -t node12-linux-x64,node12-macos-x64,node12-win-x64 dist/cmd.js",
+    "build": "webpack --config webpack.config.js -p",
     "lint": "eslint ./src --ext .js,.ts,.tsx",
     "lint:fix": "yarn lint --fix",
     "format": "prettier src/**/*.{js,ts,tsx} --list-different",
