@@ -1,6 +1,6 @@
 import React from "react"
-import Global from "./styles/global"
-import Reset from "./styles/reset"
+import Global from "./styles/Global"
+import Reset from "./styles/Reset"
 
 const Root = () => {
   return (

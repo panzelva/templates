@@ -1,6 +1,7 @@
-import { createGlobalStyle, css } from "styled-components"
+import { Global, css } from "@emotion/core"
+import React, { FC } from "react"
 
-const style = css`
+const styles = css`
   html,
   body,
   div,
@@ -137,10 +138,12 @@ const style = css`
     color: inherit; /* blue colors for links too */
     text-decoration: inherit; /* no underline */
   }
+
+  button {
+    background-color: unset;
+  }
 `
 
-const Reset = createGlobalStyle`
-  ${style}
-`
+const Reset: FC = () => <Global styles={styles} />
 
 export default Reset
