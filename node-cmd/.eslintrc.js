@@ -17,7 +17,7 @@ module.exports = {
     "@typescript-eslint/no-empty-function": "warn",
     "@typescript-eslint/explicit-function-return-type": ["off"],
     "@typescript-eslint/no-empty-interface": ["warn"],
-    "@typescript-eslint/ban-ts-ignore": ["warn"],
+    "@typescript-eslint/ban-ts-comment": ["warn"],
     "no-console": ["warn"],
   },
 }
