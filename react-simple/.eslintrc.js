@@ -2,25 +2,36 @@ const path = require("path")
 
 module.exports = {
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "react-hooks"],
   extends: [
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
     "prettier",
-    "prettier/@typescript-eslint"
+    "prettier/@typescript-eslint",
+    "plugin:react/recommended",
+    "prettier/react",
   ],
+  rules: {
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"],
+    "@typescript-eslint/no-empty-interface": ["warn"],
+    "@typescript-eslint/ban-ts-comment": ["warn"],
+    "@typescript-eslint/ban-types": "warn",
+    "no-console": ["warn"],
+    "react/prop-types": ["off"],
+    "react/self-closing-comp": ["warn"],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   parserOptions: {
     // https://github.com/typescript-eslint/typescript-eslint/issues/251
     project: path.resolve(__dirname, "./tsconfig.json"),
     tsconfigRootDir: __dirname,
-    warnOnUnsupportedTypeScriptVersion: false
+    warnOnUnsupportedTypeScriptVersion: false,
   },
-  rules: {
-    "@typescript-eslint/explicit-function-return-type": 0
-  },
-  settings: {
-    react: {
-      version: "detect"
-    }
-  }
 }

@@ -9,8 +9,10 @@ jobs:
       - uses: actions/checkout@v1
       - name: Install dependecies
         run: yarn
-      - name: ESLint
-        run: yarn lint
+      # TODO remove
+      # Linting is included with webpack thanks to fork-ts-checker-webpack-plugin
+      # - name: ESLint
+      #   run: yarn lint
       - name: Prettier
         run: yarn format
       - name: Build
