@@ -1,12 +1,9 @@
 const path = require("path")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { createEmotionPlugin } = require("emotion-ts-plugin")
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 
-module.exports = (env, argv) => {
-  // const isDev = argv.mode !== "production";
-
+module.exports = () => {
   return {
     entry: "./src/main.tsx",
     output: {
@@ -17,23 +14,7 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.(jsx|tsx|js|ts)$/,
-          loader: "ts-loader",
-          options: {
-            transpileOnly: true,
-            getCustomTransformers: () => ({
-              before: [
-                createEmotionPlugin({
-                  sourcemap: true,
-                  autoLabel: true,
-                  labelFormat: "[local]",
-                  autoInject: true,
-                }),
-              ],
-            }),
-            compilerOptions: {
-              jsxFactory: "jsx",
-            },
-          },
+          loader: "babel-loader",
           exclude: /node_modules/,
         },
       ],
@@ -42,14 +23,8 @@ module.exports = (env, argv) => {
       extensions: [".js", ".jsx", ".ts", ".tsx"],
     },
     plugins: [
-      new ForkTsCheckerWebpackPlugin({
-        eslint: {
-          files: "./src/**/*.{ts,tsx,js,jsx}", // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
-        },
-      }),
-      new HtmlWebPackPlugin({
-        template: "./public/index.html",
-      }),
+      new ForkTsCheckerWebpackPlugin({ eslint: { files: "./src/**/*.{ts,tsx,js,jsx}" } }),
+      new HtmlWebPackPlugin({ template: "./public/index.html" }),
       new CleanWebpackPlugin(),
     ],
     optimization: {
