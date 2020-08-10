@@ -2,7 +2,7 @@ import Knex from 'knex'
 import { knexSnakeCaseMappers, Model } from 'objection'
 import env from '../utils/env'
 
-const config = {
+const config: Knex.Config = {
   client: 'pg',
   connection: {
     host: env.PG_HOST,
@@ -12,6 +12,12 @@ const config = {
     password: env.PG_PASS,
   },
   ...knexSnakeCaseMappers(),
+  migrations: {
+    directory: env.MIGRATIONS_DIRECTORY,
+  },
+  seeds: {
+    directory: env.SEEDS_DIRECTORY,
+  },
   debug: false,
 }
 

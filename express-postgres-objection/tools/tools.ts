@@ -1,31 +1,22 @@
-import { connectToDatabase } from '../src/database/database'
+import { withKnex } from '../src/database/helpers'
 import logger from '../src/utils/logger'
-import path from 'path'
 
-export const createSchema = async (): Promise<void> => {
-  const knex = connectToDatabase()
+export const createSchema = withKnex(async (knex) => {
   await knex.schema.raw(`create schema if not exists "public"`)
   logger.info('Schema created')
-  await knex.destroy()
-}
+})
 
-export const dropSchema = async (): Promise<void> => {
-  const knex = connectToDatabase()
+export const dropSchema = withKnex(async (knex) => {
   await knex.schema.raw(`drop schema if exists "public" cascade`)
   logger.info('Schema dropped')
-  await knex.destroy()
-}
+})
 
-export const migrateDatabase = async (): Promise<void> => {
-  const knex = connectToDatabase()
+export const migrateDatabase = withKnex(async (knex) => {
   logger.info('Migrating database')
-  await knex.migrate.latest({ directory: path.join('src', 'database', 'migrations') })
-  await knex.destroy()
-}
+  await knex.migrate.latest()
+})
 
-export const seedDatabase = async (): Promise<void> => {
-  const knex = connectToDatabase()
+export const seedDatabase = withKnex(async (knex) => {
   logger.info('Seeding database')
-  await knex.seed.run({ directory: path.join('src', 'database', 'seeds') })
-  await knex.destroy()
-}
+  await knex.seed.run()
+})
