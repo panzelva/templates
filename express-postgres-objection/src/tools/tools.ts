@@ -1,5 +1,5 @@
-import { withKnex } from '../src/database/helpers'
-import logger from '../src/utils/logger'
+import { withKnex } from '../database/helpers'
+import logger from '../utils/logger'
 
 export const createSchema = withKnex(async (knex) => {
   await knex.schema.raw(`create schema if not exists "public"`)

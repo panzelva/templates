@@ -1,19 +1,8 @@
-import { createSchema, migrateDatabase, seedDatabase } from '../tools/tools'
+import { connectToDatabase } from './database/database'
 import { startServer } from './server'
-import env from './utils/env'
 
 const start = async () => {
-  // when developing, run migrations and seeds with yarn from command line
-  // this is because nodemon will restart this process
-  if (env.MIGRATIONS_ENABLED) {
-    await createSchema()
-    await migrateDatabase()
-  }
-
-  if (env.SEEDS_ENABLED) {
-    await seedDatabase()
-  }
-
+  connectToDatabase()
   await startServer()
 }
 

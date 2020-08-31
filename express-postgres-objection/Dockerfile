@@ -23,4 +23,4 @@ COPY ["package.json", "yarn.lock", "./"]
 RUN yarn install --production --non-interactive
 
 EXPOSE 4000
-CMD ["node", "server.js"]
+CMD ["node", "start.js"]

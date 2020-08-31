@@ -1,7 +1,7 @@
 import * as Knex from 'knex'
-import User from '../models/user'
+import User from '../models/User'
 
-const data = [
+export const userSeed = [
   {
     id: '6b0139b6-482a-4b11-8d98-ec42c44f31bf',
   },
@@ -18,5 +18,5 @@ const data = [
 
 export async function seed(knex: Knex): Promise<void> {
   await knex(User.tableName).del()
-  await knex(User.tableName).insert(data)
+  await knex(User.tableName).insert(userSeed)
 }

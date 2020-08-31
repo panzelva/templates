@@ -1,9 +1,10 @@
-version: "3.7"
+version: '3.7'
 services:
   server:
     build:
       context: .
       dockerfile: Dockerfile
+    image: express-postgres-objection
     restart: always
     environment:
       PG_HOST: postgres
@@ -11,11 +12,10 @@ services:
       PG_DATABASE: postgres
       PG_USER: postgres
       PG_PASS: postgres
-      SEEDS_ENABLED: 'true'
     ports:
       - 4000:4000
   postgres:
-    image: postgres:11
+    image: postgres:12
     ports:
       - 5432:5432
     environment:
@@ -24,7 +24,7 @@ services:
       POSTGRES_USER: postgres
     restart: always
     volumes:
-      - db-data:/var/lib/postgresql/data
+      - postgres:/var/lib/postgresql/data
 
 volumes:
-  db-data:
+  postgres:

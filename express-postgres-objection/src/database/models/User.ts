@@ -1,4 +1,4 @@
-import { BaseModel } from './common/baseModel'
+import { BaseModel } from './BaseModel'
 
 export default class User extends BaseModel {
   public id: string
