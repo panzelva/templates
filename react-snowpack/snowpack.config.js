@@ -1,22 +1,4 @@
-const fs = require('fs')
-const path = require('path')
-
-const cwd = process.cwd()
-const isTS = fs.existsSync(path.join(cwd, 'tsconfig.json'))
-
 module.exports = {
-  mount: {
-    public: '/',
-    src: '/_dist_',
-  },
-  plugins: [
-    '@snowpack/plugin-react-refresh',
-    '@snowpack/plugin-babel',
-    '@snowpack/plugin-dotenv',
-    '@snowpack/plugin-webpack',
-  ],
-  devOptions: {},
-  installOptions: {
-    installTypes: isTS,
-  },
+  extends: '@snowpack/app-scripts-react',
+  plugins: ['@snowpack/plugin-webpack'],
 }

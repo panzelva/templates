@@ -2,16 +2,8 @@ module.exports = (api) => {
   api.cache(true)
 
   return {
-    presets: [
-      '@babel/preset-react',
-      '@babel/preset-typescript',
-      ['@emotion/babel-preset-css-prop', { autoLabel: true, labelFormat: '[local]' }],
-    ],
-    plugins: ['@babel/plugin-syntax-import-meta'],
-    env: {
-      development: {
-        plugins: ['react-refresh/babel'],
-      },
-    },
+    extends: '@snowpack/app-scripts-react/babel.config.json',
+    // HACK sourceMap must be false - https://github.com/emotion-js/emotion/issues/1936
+    presets: [['@emotion/babel-preset-css-prop', { autoLabel: true, labelFormat: '[local]', sourceMap: false }]],
   }
 }
