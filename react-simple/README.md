@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 
-> Simple react starter with TypeScript and styled-components
+> Simple react starter with TypeScript and Emotion
 
 ## Install
 
