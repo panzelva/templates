@@ -1,0 +1,7 @@
+{
+  "type": "object",
+  "properties": {
+    "x-foo": { "type": "string" }
+  },
+  "required": ["x-foo"]
+}
