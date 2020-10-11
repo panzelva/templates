@@ -1,5 +1,5 @@
 import { css } from "@emotion/core"
-import React, { Fragment } from "react"
+import React from "react"
 import { withStyles } from "./styles/withStyles"
 
 const Root = () => {
@@ -16,9 +16,9 @@ const Root = () => {
 
 const App = () => {
   return (
-    <Fragment>
+    <>
       <Root />
-    </Fragment>
+    </>
   )
 }
 

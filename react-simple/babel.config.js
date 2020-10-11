@@ -9,6 +9,7 @@ module.exports = (api) => {
       ["@emotion/babel-preset-css-prop", { autoLabel: true, labelFormat: "[local]" }],
     ],
     plugins: [
+      "@babel/plugin-transform-runtime",
       "@babel/plugin-syntax-dynamic-import",
       "@babel/proposal-class-properties",
       "@babel/proposal-object-rest-spread",
