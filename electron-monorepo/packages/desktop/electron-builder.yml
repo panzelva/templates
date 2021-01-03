@@ -1,5 +1,0 @@
-directories:
-  output: release
-linux:
-  target:
-    - target: deb
