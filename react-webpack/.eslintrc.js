@@ -2,7 +2,7 @@ const path = require("path")
 
 module.exports = {
   parser: "@typescript-eslint/parser",
-  plugins: ["@typescript-eslint", "react-hooks"],
+  plugins: ["@typescript-eslint", "react-hooks", "@emotion"],
   extends: [
     "plugin:@typescript-eslint/recommended",
     "prettier",
@@ -22,6 +22,7 @@ module.exports = {
     "react/self-closing-comp": ["warn"],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "@emotion/pkg-renaming": "error",
   },
   settings: {
     react: {

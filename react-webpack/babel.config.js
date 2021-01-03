@@ -6,7 +6,7 @@ module.exports = (api) => {
       ["@babel/env", { targets: "> 0.25%", useBuiltIns: "usage", corejs: "3" }],
       "@babel/preset-react",
       ["@babel/preset-typescript", { allExtensions: true, isTSX: true }],
-      ["@emotion/babel-preset-css-prop", { autoLabel: true, labelFormat: "[local]" }],
+      ["@emotion/babel-preset-css-prop", { autoLabel: "always", labelFormat: "[local]" }],
     ],
     plugins: [
       "@babel/plugin-transform-runtime",

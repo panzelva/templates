@@ -1,5 +1,6 @@
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import React from "react"
+import Square from "./components/Square"
 import { withStyles } from "./styles/withStyles"
 
 const Root = () => {
@@ -10,6 +11,7 @@ const Root = () => {
       `}
     >
       <h1>Hello World!</h1>
+      <Square />
     </div>
   )
 }
