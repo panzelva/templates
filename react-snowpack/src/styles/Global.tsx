@@ -1,4 +1,4 @@
-import { css, Global as EmotionGlobal } from '@emotion/core'
+import { css, Global as EmotionGlobal } from '@emotion/react'
 import React, { FC } from 'react'
 
 const styles = css`
