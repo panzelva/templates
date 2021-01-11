@@ -28,7 +28,6 @@ export const itemRoutes: PluginRegisterFn = async (fastify) => {
   fastify.route({
     url: "/",
     method: "GET",
-    schema: { tags: ["swagger"] },
     handler: async () => {
       return records
     },
