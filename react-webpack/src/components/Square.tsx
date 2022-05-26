@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
 import React from "react"
 
-const Square = () => {
+export function Square() {
   return (
     <div
       css={css`
@@ -12,5 +12,3 @@ const Square = () => {
     />
   )
 }
-
-export default Square

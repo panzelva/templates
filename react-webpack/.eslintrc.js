@@ -3,13 +3,7 @@ const path = require("path")
 module.exports = {
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "react-hooks", "@emotion"],
-  extends: [
-    "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "plugin:react/recommended",
-    "prettier/react",
-  ],
+  extends: ["plugin:@typescript-eslint/recommended", "prettier", "plugin:react/recommended"],
   rules: {
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/explicit-function-return-type": ["off"],
